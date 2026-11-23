@@ -1,0 +1,116 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  }
+}
+
+/* Custom scrollbar for horizontal kanban and drawer */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #E2E8F0;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #CBD5E1;
+}
+
+/* Shimmer animation for splash bottom indicator */
+@keyframes pingPongShimmer {
+  0% {
+    left: 0%;
+    transform: translateX(0%);
+  }
+  50% {
+    left: 100%;
+    transform: translateX(-100%);
+  }
+  100% {
+    left: 0%;
+    transform: translateX(0%);
+  }
+}
+
+.shimmer-track {
+  position: relative;
+  overflow: hidden;
+}
+
+.shimmer-bar {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 42%;
+  background: linear-gradient(90deg, rgba(129, 140, 248, 0.4) 0%, #818CF8 50%, rgba(129, 140, 248, 0.4) 100%);
+  border-radius: 9999px;
+  animation: pingPongShimmer 2.2s ease-in-out infinite;
+  box-shadow: 0 0 12px rgba(129, 140, 248, 0.5);
+}
+
+/* Animações de movimento suave e aleatório da luz roxinha pela tela */
+@keyframes wanderPurple1 {
+  0% {
+    transform: translate(-50%, -50%) translate3d(0vw, 0vh, 0) scale(1);
+  }
+  18% {
+    transform: translate(-50%, -50%) translate3d(32vw, -22vh, 0) scale(1.18);
+  }
+  40% {
+    transform: translate(-50%, -50%) translate3d(-34vw, 16vh, 0) scale(0.9);
+  }
+  62% {
+    transform: translate(-50%, -50%) translate3d(26vw, 24vh, 0) scale(1.24);
+  }
+  84% {
+    transform: translate(-50%, -50%) translate3d(-24vw, -20vh, 0) scale(1.08);
+  }
+  100% {
+    transform: translate(-50%, -50%) translate3d(0vw, 0vh, 0) scale(1);
+  }
+}
+
+@keyframes wanderPurple2 {
+  0% {
+    transform: translate(-50%, -50%) translate3d(0vw, 0vh, 0) scale(1.1);
+  }
+  24% {
+    transform: translate(-50%, -50%) translate3d(-36vw, -18vh, 0) scale(0.85);
+  }
+  52% {
+    transform: translate(-50%, -50%) translate3d(32vw, 22vh, 0) scale(1.22);
+  }
+  76% {
+    transform: translate(-50%, -50%) translate3d(-16vw, 28vh, 0) scale(0.94);
+  }
+  100% {
+    transform: translate(-50%, -50%) translate3d(0vw, 0vh, 0) scale(1.1);
+  }
+}
+
+.animate-wander-purple-1 {
+  animation: wanderPurple1 24s cubic-bezier(0.42, 0, 0.58, 1) infinite;
+  will-change: transform;
+}
+
+.animate-wander-purple-2 {
+  animation: wanderPurple2 30s cubic-bezier(0.42, 0, 0.58, 1) infinite;
+  will-change: transform;
+}
+
+/* Font signature for "Start" */
+.font-handwriting {
+  font-family: 'Caveat', cursive;
+}
